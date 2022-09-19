@@ -50,4 +50,6 @@ streamlit.dataframe(my_data_row)
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
 streamlit.write('The user entered ', add_my_fruit)
 #my_data_row.append(add_my_fruit)
-streamlit.dataframe(my_data_row).append(add_my_fruit)
+df1=streamlit.dataframe(my_data_row)
+df2=df1.append(add_my_fruit)
+df2
