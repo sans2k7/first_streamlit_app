@@ -5,7 +5,7 @@ import requests
 import pandas
 
 import snowflake.connector
-from urlib.error import URLError
+from urllib.error import URLError
 
 streamlit.title('This is draft copy')
 streamlit.header('Breakfast Menu')
