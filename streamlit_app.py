@@ -31,6 +31,9 @@ def get_fruityvice_data(this_fruit_choice):
   fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
   return fruityvice_normalized
 
+if streamlit.button('Wish Good morning 1'):
+  streamlit.dataframe(fruits_to_show)
+  
 try:
   fruit_choice= streamlit.text_input('What fruit you want ?')
   if not fruit_choice:
@@ -41,6 +44,10 @@ try:
  
 except URLError as e:
   streamlit.error()
+  
+  
+if streamlit.button('Wish Good morning 2'):
+  streamlit.dataframe(fruits_to_show)
   
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
@@ -64,7 +71,6 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
 streamlit.dataframe(fruityvice_normalized)
 
-streamlit.stop()
 #import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
