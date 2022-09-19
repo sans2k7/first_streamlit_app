@@ -30,9 +30,6 @@ def get_fruityvice_data(this_fruit_choice):
   fruityvice_response= requests.get("https://fruityvice.com/api/fruit/"+this_fruit_choice)
   fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
   return fruityvice_normalized
-
-if streamlit.button('Wish Good morning 1'):
-  streamlit.dataframe(fruits_to_show)
   
 try:
   fruit_choice= streamlit.text_input('What fruit you want ?')
@@ -45,19 +42,18 @@ try:
 except URLError as e:
   streamlit.error()
   
-  
-if streamlit.button('Wish Good morning 2'):
-  streamlit.dataframe(fruits_to_show)
-  
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
     my_cur.execute("Select * from fruit_load_list")
     return my_cur.fetchall()
   
-  if streamlit.button('Wish Good morning 3 '):
-    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-    my_data_row =get_fruit_load_list()
-    streamlit.dataframe(my_data_row)
+if streamlit.button('Wish Good morning 2'):
+  streamlit.dataframe(fruits_to_show)
+
+if streamlit.button('Wish Good morning 3 '):
+  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  my_data_row =get_fruit_load_list()
+  streamlit.dataframe(my_data_row)
 
 streamlit.stop()
 
