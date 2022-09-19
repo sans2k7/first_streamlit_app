@@ -43,5 +43,5 @@ my_cur.execute("Select * from fruit_load_list")
 my_data_row = my_cur.fetchone()
 #streamlit.text("Hello from Snowflake:")
 
-streamlit.Header("The Fruit Load List Contains:")
+streamlit.header("The Fruit Load List Contains:")
 streamlit.text(my_data_row)
