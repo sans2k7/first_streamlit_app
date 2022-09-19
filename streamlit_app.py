@@ -38,13 +38,10 @@ try:
   else:
     data_from_function= get_fruityvice_data(fruit_choice)
     streamlit.dataframe(data_from_function)
-
-      
+ 
 except URLError as e:
   streamlit.error()
-
-
-
+  
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
     my_cur.execute("Select * from fruit_load_list")
