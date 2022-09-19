@@ -4,6 +4,8 @@ import streamlit
 import requests
 import pandas
 
+import snowflake.connector
+
 streamlit.title('This is draft copy')
 streamlit.header('Breakfast Menu')
 streamlit.text('Omega 3 & Blueberry Oatmeal')
