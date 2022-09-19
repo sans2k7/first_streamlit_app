@@ -4,7 +4,8 @@ import streamlit
 import requests
 import pandas
 
-#import snowflake.connector
+import snowflake.connector
+from urlib.error import URLError
 
 streamlit.title('This is draft copy')
 streamlit.header('Breakfast Menu')
@@ -36,7 +37,7 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
 streamlit.stop()
-import snowflake.connector
+#import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
